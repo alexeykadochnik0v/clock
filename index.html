@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отсчет до 6 ноября 2024</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        .countdown-container {
+            text-align: center;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .flip-clock-wrapper {
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Блок для дней */
+        .days-container {
+            margin-bottom: 20px;
+        }
+
+        /* Адаптация на мобильных устройствах */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .flip-clock-wrapper {
+                transform: scale(0.8); /* Уменьшаем размер для мобильных устройств */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown-container">
+        <h1>Отсчет до важного дня</h1>
+
+        <!-- Отдельный блок для дней -->
+        <div class="days-container">
+            <div class="clock days-clock"></div>
+        </div>
+
+        <!-- Блок для часов, минут и секунд -->
+        <div class="clock main-clock"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Устанавливаем дату до которой нужно считать (6 ноября 2024)
+            var targetDate = new Date("November 6, 2024 00:00:00").getTime();
+            var currentDate = new Date().getTime();
+            var diff = (targetDate - currentDate) / 1000; // Разница в секундах
+
+            // Создаем часы для дней
+            var days = Math.floor(diff / (24 * 60 * 60)); // Разница в днях
+            var daysClock = $('.days-clock').FlipClock(days, {
+                clockFace: 'Counter',
+                countdown: true
+            });
+
+            // Разница в секундах для часов, минут и секунд
+            var timeDiff = diff % (24 * 60 * 60); // Остаток секунд после подсчета дней
+
+            // Создаем часы FlipClock для часов, минут и секунд
+            var mainClock = $('.main-clock').FlipClock(timeDiff, {
+                clockFace: 'HourlyCounter',
+                countdown: true
+            });
+        });
+    </script>
+</body>
+</html>
