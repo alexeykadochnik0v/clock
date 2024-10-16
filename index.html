@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Отсчет до 6 ноября 2024</title>
+    <title>Отсчет</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.css">
     <style>
         * {
@@ -12,7 +13,8 @@
             box-sizing: border-box;
         }
 
-        body, html {
+        body,
+        html {
             height: 100%;
             font-family: 'Arial', sans-serif;
             display: flex;
@@ -50,14 +52,16 @@
             }
 
             .flip-clock-wrapper {
-                transform: scale(0.8); /* Уменьшаем размер для мобильных устройств */
+                transform: scale(0.8);
+                /* Уменьшаем размер для мобильных устройств */
             }
         }
     </style>
 </head>
+
 <body>
     <div class="countdown-container">
-        <h1>Отсчет до важного дня</h1>
+        <h1>Тот самый день</h1>
 
         <!-- Отдельный блок для дней -->
         <div class="days-container">
@@ -71,7 +75,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             // Устанавливаем дату до которой нужно считать (6 ноября 2024)
             var targetDate = new Date("November 6, 2024 00:00:00").getTime();
             var currentDate = new Date().getTime();
@@ -95,4 +99,5 @@
         });
     </script>
 </body>
+
 </html>
